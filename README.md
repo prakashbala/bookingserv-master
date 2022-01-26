@@ -1,5 +1,15 @@
 # bookingserv
 
+## Assignment Implementation Details - Prakash 
+## Assumptions or Justifications 
+- ID sent by user will be silently ignored, creating id is application's responsibility in this project. 
+- Duplicate requests will be responded with the existing records over and over again(Idempotency requirement)
+- Date & time are in ISO-8601 standard format
+  - Dates (date_of_birth) are in format yyyy-MM-dd 
+  - TimeStamps (check_in, check_out) are in format yyyy-MM-dd'T'HH:mm:ss
+- [BookingExceptionHandler](bookingservImplementation/src/main/java/com/paypal/bfs/test/bookingserv/utils/BookingValidator.java) handles all the exceptions in the project
+- Thank you so much for this opportunity!
+
 ## Application Overview
 bookingserv is a spring boot rest application which would provide the CRUD operations for `Booking` resource.
 
