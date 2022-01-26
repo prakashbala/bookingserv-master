@@ -9,6 +9,9 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
 
+/**
+ * The Entity Class For Booking Object
+ */
 @SuppressWarnings("unused") //getter, setters are required so suppressing unused warnings
 @Entity(name = "Booking")
 @JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)

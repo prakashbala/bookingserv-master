@@ -4,6 +4,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.paypal.bfs.test.bookingserv.api.model.Booking;
 import com.paypal.bfs.test.bookingserv.entity.BookingEntity;
 
+/**
+ * To convert model to entity and vice versa
+ */
 public class BookingUtils {
 
     public static BookingEntity createBookingEntity(final ObjectMapper objectMapper, Booking model) {

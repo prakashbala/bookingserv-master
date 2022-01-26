@@ -8,7 +8,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.util.List;
 
+/**
+ * Booking create and get implementations
+ */
 public interface BookingResource {
+
     /**
      * Create {@link Booking} resource
      *

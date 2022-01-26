@@ -7,7 +7,15 @@ import java.util.List;
 
 public interface BookingService {
 
+    /**
+     * Save the given entity
+     * @param entity contains booking details
+     * @return the created Booking with new id
+     */
     Booking save(Booking entity);
 
+    /**
+     * @return list of bookings
+     */
     List<Booking> findAll();
 }

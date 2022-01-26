@@ -12,6 +12,9 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * Booking Service Implementations
+ */
 @Service
 public class BookingServiceImpl implements BookingService {
 
@@ -56,6 +59,12 @@ public class BookingServiceImpl implements BookingService {
                 .collect(Collectors.toList());
     }
 
+    /**
+     * Check if the originalRequest is duplicate
+     *
+     * @param originalRequest the booking request entity
+     * @return the duplicate entity if exists, else null
+     */
     private BookingEntity isDuplicate(BookingEntity originalRequest) {
         //check if booking matches with the basic details booking
         List<BookingEntity> similarBookings = bookingRepository.findByBookingDetails(originalRequest.getFirstName(),

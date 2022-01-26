@@ -2,6 +2,9 @@ package com.paypal.bfs.test.bookingserv.utils;
 
 import org.springframework.http.HttpStatus;
 
+/**
+ * Application will throw BookingException for any issues in input/user errors.
+ */
 public class BookingException extends RuntimeException {
 
     private final String errorCode;

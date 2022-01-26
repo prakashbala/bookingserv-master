@@ -8,6 +8,10 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Objects;
 
+
+/**
+ * The Entity class for Address Object
+ */
 @SuppressWarnings("unused") //getter, setters are required so suppressing unused warnings
 @Entity(name = "Address")
 @Table(name = "ADDRESSES")

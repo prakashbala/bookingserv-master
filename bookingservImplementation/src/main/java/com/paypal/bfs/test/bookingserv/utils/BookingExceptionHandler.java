@@ -19,43 +19,11 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+/**
+ * This handler handles all exceptions in the booking module
+ */
 @ControllerAdvice
 public class BookingExceptionHandler extends ResponseEntityExceptionHandler {
-
-    @SuppressWarnings("unused") //getters are required so suppressing unused warnings
-    private static class CustomError {
-
-        private final String errorCode;
-        private final List<String> details;
-        private final HttpStatus status;
-
-        public CustomError(HttpStatus status, String message, String errorCode) {
-            super();
-            this.errorCode = errorCode;
-            this.details = Collections.singletonList(message);
-            this.status = status;
-        }
-
-        public CustomError(HttpStatus status, List<String> errors, String errorCode) {
-            super();
-            this.errorCode = errorCode;
-            this.details = errors;
-            this.status = status;
-        }
-
-        public HttpStatus getStatus() {
-            return status;
-        }
-
-        public List<String> getDetails() {
-            return details;
-        }
-
-        public String getErrorCode() {
-            return errorCode;
-        }
-
-    }
 
     @ExceptionHandler({DateTimeParseException.class})
     protected ResponseEntity<Object> handleBookingException(DateTimeParseException ex, WebRequest webRequest) {
@@ -122,4 +90,38 @@ public class BookingExceptionHandler extends ResponseEntityExceptionHandler {
                 "Check in/out time should be in format yyyy-MM-dd'T'HH:mm:ss").collect(Collectors.toList());
     }
 
+    @SuppressWarnings("unused") //getters are required so suppressing unused warnings
+    private static class CustomError {
+
+        private final String errorCode;
+        private final List<String> details;
+        private final HttpStatus status;
+
+        public CustomError(HttpStatus status, String message, String errorCode) {
+            super();
+            this.errorCode = errorCode;
+            this.details = Collections.singletonList(message);
+            this.status = status;
+        }
+
+        public CustomError(HttpStatus status, List<String> errors, String errorCode) {
+            super();
+            this.errorCode = errorCode;
+            this.details = errors;
+            this.status = status;
+        }
+
+        public HttpStatus getStatus() {
+            return status;
+        }
+
+        public List<String> getDetails() {
+            return details;
+        }
+
+        public String getErrorCode() {
+            return errorCode;
+        }
+
+    }
 }

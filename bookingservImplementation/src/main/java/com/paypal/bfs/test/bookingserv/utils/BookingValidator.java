@@ -9,6 +9,9 @@ import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
+/**
+ * Validates user input
+ */
 @Component
 public class BookingValidator {
 
