@@ -7,7 +7,7 @@
 - Date & time are in ISO-8601 standard format
   - Dates (date_of_birth) are in format yyyy-MM-dd 
   - TimeStamps (check_in, check_out) are in format yyyy-MM-dd'T'HH:mm:ss
-- [BookingExceptionHandler](bookingservImplementation/src/main/java/com/paypal/bfs/test/bookingserv/utils/BookingValidator.java) handles all the exceptions in the project
+- [BookingExceptionHandler](bookingservImplementation/src/main/java/com/paypal/bfs/test/bookingserv/utils/BookingExceptionHandler.java) handles all the exceptions in the project
 - Thank you so much for this opportunity!
 
 ## Application Overview
