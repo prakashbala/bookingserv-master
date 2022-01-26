@@ -59,8 +59,11 @@
                 <configuration>
                     <sourceDirectory>${project.basedir}/src/main/resources/v1/schema</sourceDirectory>
                     <targetPackage>com.paypal.bfs.test.bookingserv.api.model</targetPackage>
+                    <outputDirectory>${project.basedir}/target/generated-sources</outputDirectory>
                     <useCommonsLang3>true</useCommonsLang3>
                     <includeHashcodeAndEquals>false</includeHashcodeAndEquals>
+                    <includeAdditionalProperties>false</includeAdditionalProperties>
+                    <includeJsr303Annotations>true</includeJsr303Annotations>  <!-- Added this for generating annotations in POJO-->
                 </configuration>
                 <executions>
                     <execution>

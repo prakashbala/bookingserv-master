@@ -9,3 +9,4 @@ public class BookingServApplication {
         SpringApplication.run(BookingServApplication.class, args);
     }
 }
+

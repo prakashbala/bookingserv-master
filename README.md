@@ -5,10 +5,10 @@ bookingserv is a spring boot rest application which would provide the CRUD opera
 
 There are three modules in this application
 - bookingservApi - This module contains the interface.
-    - `v1/schema/booking.json` defines the booking resource.
+    - `v1/schema/bookingEntity.json` defines the bookingEntity resource.
     - `jsonschema2pojo-maven-plugin` is being used to create `Booking POJO` from json file.
     - `BookingResource.java` is the interface for CRUD operations on `Booking` resource.
-        - POST `/v1/bfs/booking` endpoint defined to create the resource.
+        - POST `/v1/bfs/bookingEntity` endpoint defined to create the resource.
 - bookingservImplementation - This module contains the implementation for the rest endpoints.
     - `BookingResourceImpl.java` implements the `BookingResource` interface.
 - bookingservFunctionalTests - This module would have the functional tests.
@@ -17,12 +17,12 @@ There are three modules in this application
 - Please have Maven version `3.3.3` & Java 8 on your system.
 - Use command `mvn clean install` to build the project.
 - Use command `mvn spring-boot:run` from `bookingservImplementation` folder to run the project.
-- Use postman or curl to access `http://localhost:8080/v1/bfs/booking` POST or GET endpoint.
+- Use postman or curl to access `http://localhost:8080/v1/bfs/bookingEntity` POST or GET endpoint.
 
 ## Assignment
 We would like you to enhance the existing project and see you complete the following requirements:
 
-- `booking.json` has only `name`, and `id` elements. Please add `date of birth`, `checkin`, `checkout`, `totalprice`, `deposit` and `address` elements to the `Booking` resource. Address will have `line1`, `line2`, `city`, `state`, `country` and `zip_code` elements. `line2` is an optional element.
+- `bookingEntity.json` has only `name`, and `id` elements. Please add `date of birth`, `checkin`, `checkout`, `totalprice`, `deposit` and `addressEntity` elements to the `Booking` resource. Address will have `line1`, `line2`, `city`, `state`, `country` and `zip_code` elements. `line2` is an optional element.
 - Add one more operation in `BookingResource` to Get All the bookings. `BookingResource` will have two operations, one to create, and another to retrieve all bookings.
 - Implement create and get all the bookings operations in `BookingResourceImpl.java`.
 - Please add the unit tests to validate your implementation.
