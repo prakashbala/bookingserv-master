@@ -1,7 +1,6 @@
 # bookingserv
 
-## Assignment Implementation Details - Prakash 
-## Assumptions or Justifications 
+## Assumptions or Justifications (Prakash)
 - ID sent by user will be silently ignored, creating id is application's responsibility in this project. 
 - Duplicate requests will be responded with the existing records over and over again(Idempotency requirement)
 - Date & time are in ISO-8601 standard format
