@@ -28,9 +28,10 @@ import java.util.Date;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.hamcrest.CoreMatchers.containsString;
-import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.*;
+import static org.hamcrest.Matchers.hasSize;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 
 @RunWith(SpringRunner.class)
@@ -55,6 +56,22 @@ public class BookingIntegrationTest {
 
         List<BookingEntity> bookings = bookingRepository.findAll();
         assertThat(bookings).extracting(BookingEntity::getFirstName).containsOnly("Jasprit");
+    }
+
+    @Test
+    public void whenBookingsUpdated_thenGetAllShouldReturnAll() throws Exception {
+        Booking validBooking1 = createValidBooking("Mark", "Waugh");
+        Booking validBooking2 = createValidBooking("Steve", "Waugh");
+
+        mvc.perform(post("/v1/bfs/booking").contentType(MediaType.APPLICATION_JSON)
+                .content(toJson(validBooking1)));
+        mvc.perform(post("/v1/bfs/booking").contentType(MediaType.APPLICATION_JSON)
+                .content(toJson(validBooking2)));
+
+        mvc.perform(get("/v1/bfs/booking").contentType(MediaType.APPLICATION_JSON)
+                .content(toJson(validBooking2)))
+                .andExpect(jsonPath("$", hasSize(equalTo(2))));
+
     }
 
     @Test
