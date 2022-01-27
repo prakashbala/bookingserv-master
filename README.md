@@ -7,7 +7,8 @@
   - Dates (date_of_birth) are in format yyyy-MM-dd 
   - TimeStamps (check_in, check_out) are in format yyyy-MM-dd'T'HH:mm:ss
 - [BookingExceptionHandler](bookingservImplementation/src/main/java/com/paypal/bfs/test/bookingserv/utils/BookingExceptionHandler.java) handles all the exceptions in the project
-- [BookingResource](bookingservApi/src/main/java/com/paypal/bfs/test/bookingserv/api/BookingResource.java) documents all response codes & error handlings
+- [BookingResource](bookingservApi/src/main/java/com/paypal/bfs/test/bookingserv/api/BookingResource.java) documents all response codes & error handling
+- [validRequest.json](bookingservFunctionalTests/src/test/resources/validRequest.json) has valid request json for reference
 - Thank you so much for this opportunity!
 
 ## Application Overview
