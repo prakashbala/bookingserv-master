@@ -3,10 +3,11 @@
 ## Assumptions or Justifications (Prakash)
 - ID sent by user will be silently ignored, creating id is application's responsibility in this project. 
 - Duplicate requests will be responded with the existing records over and over again(Idempotency requirement)
-- Date & time are in ISO-8601 standard format
+- Date & time are in ISO-8601 standard format (in UTC Zone)
   - Dates (date_of_birth) are in format yyyy-MM-dd 
   - TimeStamps (check_in, check_out) are in format yyyy-MM-dd'T'HH:mm:ss
 - [BookingExceptionHandler](bookingservImplementation/src/main/java/com/paypal/bfs/test/bookingserv/utils/BookingExceptionHandler.java) handles all the exceptions in the project
+- [BookingResource](bookingservApi/src/main/java/com/paypal/bfs/test/bookingserv/api/BookingResource.java) documents all response codes & error handlings
 - Thank you so much for this opportunity!
 
 ## Application Overview
