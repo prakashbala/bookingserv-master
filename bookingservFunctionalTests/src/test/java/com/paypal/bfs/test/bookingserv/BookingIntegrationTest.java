@@ -30,8 +30,8 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.CoreMatchers.*;
 import static org.hamcrest.Matchers.hasSize;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 
 @RunWith(SpringRunner.class)
@@ -68,8 +68,7 @@ public class BookingIntegrationTest {
         mvc.perform(post("/v1/bfs/booking").contentType(MediaType.APPLICATION_JSON)
                 .content(toJson(validBooking2)));
 
-        mvc.perform(get("/v1/bfs/booking").contentType(MediaType.APPLICATION_JSON)
-                .content(toJson(validBooking2)))
+        mvc.perform(get("/v1/bfs/booking").contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$", hasSize(equalTo(2))));
 
     }
@@ -253,6 +252,15 @@ public class BookingIntegrationTest {
                 .content(toJson(booking)))
                 .andExpect(jsonPath("$.errorCode", is("BOOK-MAND-01")))
                 .andExpect(jsonPath("$.details[0]", containsString("zipCode")));
+    }
+
+    @Test
+    public void whenNoInputBody_thenExpect_Error_BOOK_INV_01() throws Exception {
+        String booking = "";
+
+        mvc.perform(post("/v1/bfs/booking").contentType(MediaType.APPLICATION_JSON)
+                        .content(toJson(booking)))
+                .andExpect(jsonPath("$.errorCode", is("BOOK-INV-01")));
     }
 
     @After
